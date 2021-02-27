@@ -18,8 +18,10 @@
 >替换空格示例：http://api.ks2.xyz/index.php?ip=test.ks2.xyz&send=plugins&key=123456&command=time%20set%20999
 
 ###请求返回结果:
+
 ![avatar](http://hkimg.oa5.xyz/jk-2.png)
-***
+
+###----------------------------
 ##对接到RCON版的使用说明
 ### 请求地址
 
@@ -35,5 +37,6 @@
 >替换空格示例：http://api.ks2.xyz/index.php?ip=test.ks2.xyz&port=25566&pass=123456&send=rcon&command=time%20set%20999
 
 ###请求返回结果:
+
 ![avatar](http://hkimg.oa5.xyz/jk-4.png)
 
