@@ -1,37 +1,57 @@
-## Welcome to GitHub Pages
+#感谢您使用Ks2在线充值接口
+## Ks2Pay官方网站：https://ks2.xyz
+>* 1，插件版：面板服也可以轻松使用  
+>* 2，RCON直连版：采用原生协议，本地不保存账号密码。适用于开了2个端口及以上的服务器
 
-You can use the [editor on GitHub](https://github.com/ks2pay/ks2.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## 对接到插件版的使用说明
+### 请求地址
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+>http://api.ks2.xyz/index.php
 
-### Markdown
+### 调用方式：HTTP Get
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+#### 请求参数:
+|字段名称|字段说明|类型|必填|示例|
+| -------------|:--------------:|:--------------:|:--------------:| ------:|
+|ip|您的服务器ip|string|是|test.ks2.xyz|
+|send|插件版填写plugins|string|是|plugins|
+|key|您的服务器key|string|是|123456|
+|command|需要发送的指令(不加/)|string|是|time set 999|
+#### 请求示例(不能输入空格或输入空格指令错误的请将空格替换为%20)
+>标准示例：http://api.ks2.xyz/index.php?ip=test.ks2.xyz&send=plugins&key=123456&command=time set 999
 
-```markdown
-Syntax highlighted code block
+>替换空格示例：http://api.ks2.xyz/index.php?ip=test.ks2.xyz&send=plugins&key=123456&command=time%20set%20999
 
-# Header 1
-## Header 2
-### Header 3
+###请求返回结果:
+|返回值|返回值说明|
+| -------------|:--------------:|
+|succ|指令发送成功|
+|key err|服务器key填写错误|
+|未授权|您未购买授权，购买地址buy.oa5.xyz|
+***
+##对接到RCON版的使用说明
+### 请求地址
 
-- Bulleted
-- List
+>http://api.ks2.xyz/index.php
 
-1. Numbered
-2. List
+### 调用方式：HTTP Get
 
-**Bold** and _Italic_ and `Code` text
+#### 请求参数:
+|字段名称|字段说明|类型|必填|示例|
+| -------------|:--------------:|:--------------:|:--------------:| ------:|
+|ip|您的服务器ip(数字)|string|是|123.456.789.000|
+|port|RCON端口，不是游戏端口|string|是|25566|
+|pass|RCON密码|string|是|123456|
+|send|RCON版请填写rcon|string|是|rcon|
+|command|需要发送的指令(不加/)|string|是|time set 999|
+#### 请求示例(不能输入空格或输入空格指令错误的请将空格替换为%20)
+>标准示例：http://api.ks2.xyz/index.php?ip=test.ks2.xyz&port=25566&pass=123456&send=rcon&command=time set 999
 
-[Link](url) and ![Image](src)
-```
+>替换空格示例：http://api.ks2.xyz/index.php?ip=test.ks2.xyz&port=25566&pass=123456&send=rcon&command=time%20set%20999
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ks2pay/ks2.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+###请求返回结果:
+|返回值|返回值说明|
+| -------------|:--------------:|
+|命令发送成功|指令发送成功|
+|连接失败|服务器连接失败|
+|未授权|您未购买授权，购买地址buy.oa5.xyz|
